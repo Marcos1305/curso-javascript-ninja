@@ -70,9 +70,9 @@ Mostre os números de 20 a 30 no console (inclusive o 30), usando a estrutura de
 repetição "while".
 */
 var count = 20;
-while(count < 30){
-    count ++;
-    console.log(count);
+while(count <= 30){
+    
+    console.log(count++);
 }
 
 /*
