@@ -4,7 +4,9 @@ para começar o desafio.
 Declare uma variável chamada `championship` que receberá o nome do campeonato,
 e imprima o nome desse campeonato no console.
 */
-// ?
+
+var championship = 'Capixaba';
+console.log(championship);
 
 /*
 Declare uma variável chamada `teams`, que receberá um array com 5 elementos.
@@ -13,6 +15,8 @@ estar na ordem em que eles aparecem na tabela no momento da solução desse
 desafio.
 */
 // ?
+teams = ['Serra', 'Real Noroeste', 'Espírito Santo', 'Rio Branvo-VN', 'Atlético Itapemirim', 'Desportiva', 'Vitória(ES)', 'Tupy',
+'Doze', 'São Mateus'];
 
 console.log( 'Times que estão participando do campeonato:', teams );
 
@@ -32,19 +36,44 @@ Crie uma função chamada `showTeamPosition` com as seguintes características:
     - Se não houver time para a posição passada, deve retornar a mensagem:
     "Não temos a informação do time que está nessa posição."
 */
-// ?
+
+function showTeamPosition(x){
+     xteam = x - 1;
+
+    if(teams[xteam] === undefined){
+        return "Não temos a informação do time que está nessa posição.";
+    }
+
+    if(x > 5){
+        return 'O time deve esta entre os 5 primeiros.';
+    }
+
+    return 'O time que está em ' + x + 'º' + ' lugar é o time ' +teams[xteam]+'.';
+
+    
+};
+
+
+
 
 /*
 Escolha 4 times do campeonato selecionado e mostre a posição dele, usando a
 função acima. Entre esses 4, adicione 1 que não esteja entre os 5 primeiros.
 */
-// ?
-
+showTeamPosition(1);    //"O time que está em 1º lugar é o time Serra."
+showTeamPosition(2);    //"O time que está em 2º lugar é o time Real Noroeste."
+showTeamPosition(3);    //"O time que está em 3º lugar é o time Espírito Santo."
+showTeamPosition(4);    //"O time que está em 4º lugar é o time Rio Branvo-VN."
+showTeamPosition(10);   //"O time deve esta entre os 5 primeiros."
 /*
 Mostre os números de 20 a 30 no console (inclusive o 30), usando a estrutura de
 repetição "while".
 */
-// ?
+var count = 20;
+while(count < 30){
+    count ++;
+    console.log(count);
+}
 
 /*
 Crie uma função chamada `convertToHex`, com as seguintes características:
@@ -58,9 +87,49 @@ Crie uma função chamada `convertToHex`, com as seguintes características:
     a frase:
     "Não temos o equivalente hexadecimal para [COR]."
 */
-// ?
 
+    function convertToHex(cor){
+    red = '#FF0000';
+    yellow = "#FFFF00";
+    blue = '#0000FF'
+    green = '#008000';
+    pink = '#FFC0CB';
+
+    switch(cor){
+        case 'red':
+        return 'O hexadecimal para a cor ' + cor + ' é ' + red;
+        break;
+
+        case 'yellow':
+        return 'O hexadecimal para a cor ' + cor + ' é ' + yellow;
+        break;
+
+        case 'blue':
+        return 'O hexadecimal para a cor ' + cor + ' é ' + blue;
+        break;
+
+        case 'green':
+        return 'O hexadecimal para a cor ' + cor + ' é ' + green;
+        break;
+
+        case 'pink':
+        return 'O hexadecimal para a cor ' + cor + ' é ' + pink;
+        break;
+
+        default:
+        return 'Não temos o equivalente hexadecimal para ' + cor +'.';
+    }
+
+
+}
 /*
 Tente mostrar o hexadecimal de 8 cores diferentes usando a função criada acima.
 */
-// ?
+convertToHex('red'); //"O hexadecimal para a cor red é #FF0000"
+convertToHex('yellow'); // "O hexadecimal para a cor yellow é #FFFF00"
+convertToHex('blue'); //"O hexadecimal para a cor blue é #0000FF"
+convertToHex('green'); //"O hexadecimal para a cor green é #008000"
+convertToHex('pink'); // "O hexadecimal para a cor pink é #FFC0CB"
+convertToHex('purple'); // "Não temos o equivalente hexadecimal para purple."
+convertToHex('darkblue'); //"Não temos o equivalente hexadecimal para darkblue."
+convertToHex('white'); //"Não temos o equivalente hexadecimal para white."
