@@ -1,5 +1,5 @@
 (function () {
-	'use strict'
+					'use strict'
 					/*
 					1. Envolva todo o conteúdo desse desafio em uma IIFE.
 					2. Adicione a diretiva 'use strict';
@@ -115,5 +115,5 @@
 					console.log( '\nFazer replace dos textos das tags:');
 					console.log(
 						"<h1>Título da página</h1><p>Este é um parágrafo</p><footer>Rodapé</footer>".replace(/<(\w+)>([^<]+)<\/\w+>/g,
-						 '<$1> O texto dentro da tag "$1" é "$2. </$1>'))
+						 '<$1> O texto dentro da tag "$1" é "$2. </$1>\n'))
 })();
