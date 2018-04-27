@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Challenge-23</title>
+  <link rel="stylesheet" href="reset.css">
+  <style>
+
+    .calculator{
+      width: 300px;
+      margin: 0 auto;
+      padding-top: 30px;
+      position: relative;
+    }
+    button{
+      width: 24% ;
+      height: 40px;
+      margin: 0;
+      padding: 0;
+      margin-top: 3px;
+    }
+    input{
+      height: 40px;
+      width: 98.5%;
+    }
+
+  </style>
+</head>
+<body>
+    <div class="calculator">
+        <input value="0"  readonly="readonly " data-js="visor"><br>
+        <button data-js="button-number" value="9">9</button>
+        <button data-js="button-number" value="8">8</button>
+        <button data-js="button-number" value="7">7</button>
+
+        <button button-js="button-operation" value="/">/</button><br>
+
+        <button data-js="button-number" value="4">4</button>
+        <button data-js="button-number" value="5">5</button>
+        <button data-js="button-number" value="6">6</button>
+
+        <button button-js="button-operation" value="*">x</button><br>
+
+        <button data-js="button-number" value="1">1</button>
+        <button data-js="button-number" value="2">2</button>
+        <button data-js="button-number" value="3">3</button>
+
+        <button button-js="button-operation" value="-">-</button>
+        <button data-js="button-number" value="0">0</button>
+
+        <button button-js="button-operation-ce" value="ce">CE</button>
+        <button button-js="button-operation" value="+">+</button>
+        <button button-js="button-operation-result" value="=">=</button>
+    </div>
+  <script src="challenge-23.js" type="text/javascript"></script>
+</body>
+</html>
