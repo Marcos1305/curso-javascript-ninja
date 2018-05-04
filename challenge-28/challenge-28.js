@@ -116,7 +116,6 @@
   var $cidade = new DOM('[data-js="Cidade"]');
   var $cep2 = new DOM('[data-js="CEP2"]')
 
-  var httpRequest = new XMLHttpRequest();
   var ajax = new XMLHttpRequest();
   $form.on('submit', handleSubmitFormCEP);
 

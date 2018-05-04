@@ -1,4 +1,4 @@
-(function() {
+(function(DOM,window, document) {
   'use strict';
 
   /*
@@ -35,5 +35,89 @@
   E aqui nesse arquivo, faça a lógica para cadastrar os carros, em um módulo
   que será nomeado de "app".
   */
+  function app(){
+    var $form = new DOM('[data-js="form-Vehicle"]');
+    var $imgVehicle = new DOM('[data-js="img-Vehicle"]');
+    var $brandVehicle = new DOM('[data-js="brand-Vehicle"]');
+    var $yearVehicle = new DOM('[data-js="year-Vehicle"]');
+    var $boardVehicle = new DOM('[data-js="board-Vehicle"]');
+    var $colorVehicle = new DOM('[data-js="color-Vehicle"]');
+    var $nameCompany = document.querySelector('[data-js="name-of-company"]')
+    var $numberCompany = document.querySelector('[data-js="number-of-company"]')
+    var tbody = document.querySelector('[data-js="tbody"]');
+    var ajax = new XMLHttpRequest();
+    var count = 0
 
-})();
+
+    pushAjax()
+
+    $form.on('submit', function(){
+      event.preventDefault();
+      var tr = document.createElement('tr');
+      insertValues(tr);
+
+    })
+
+    function pushAjax(){
+      ajax.open('GET', 'company.json');
+      ajax.send();
+      ajax.addEventListener('readystatechange', handleReadyStateChange);
+    }
+
+    function handleReadyStateChange(){
+        if(ajax.readyState === 4 && ajax.status === 200){
+          pushData()
+
+        }
+
+    }
+
+    function pushData(){
+      var response = JSON.parse(ajax.responseText)
+      $nameCompany.textContent = response.name;
+      $numberCompany.textContent = response.phone;
+    }
+
+    function insertValues(tr){
+      var td = document.createElement('td');
+      var td2 = document.createElement('td');
+      var td3 = document.createElement('td');
+      var td4 = document.createElement('td');
+      var td5 = document.createElement('td');
+      var img = document.createElement('img');
+      if( $imgVehicle.value() !== ''){
+        img.setAttribute("src", $imgVehicle.value());
+        img.setAttribute("height", '100px');
+        img.setAttribute("width", '150px');
+        tr.appendChild(img);
+      }
+      else{
+        td.textContent = 'VÍCULO SEM IMAGEM';
+        tr.appendChild(td)
+      }
+
+
+      td2.textContent = $brandVehicle.value();
+      td3.textContent = $yearVehicle.value();
+      td4.textContent = $boardVehicle.value();
+      td5.textContent = $colorVehicle.value();
+
+
+      tr.appendChild(td2);
+      tr.appendChild(td3);
+      tr.appendChild(td4);
+      tr.appendChild(td5);
+
+      tbody.appendChild(tr);
+
+
+      $imgVehicle.clear()
+      $brandVehicle.clear()
+      $yearVehicle.clear()
+      $boardVehicle.clear()
+      $colorVehicle.clear()
+
+    }
+  }
+app();
+})(window.DOM, window ,document);
